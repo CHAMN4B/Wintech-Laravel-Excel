@@ -7,7 +7,12 @@ use PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder as PhpSpreadsheetDefaultVal
 
 class DefaultValueBinder extends PhpSpreadsheetDefaultValueBinder
 {
-    public function bindValue(Cell $cell, $value)
+    /**
+     * @param  Cell  $cell  Cell to bind value to
+     * @param  mixed  $value  Value to bind in cell
+     * @return bool
+     */
+    public function bindValue(Cell $cell, $value) : bool
     {
         if (is_array($value)) {
             $value = \json_encode($value);
